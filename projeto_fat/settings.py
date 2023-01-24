@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hh^ekv@kwn3sq(b&4^ms%@_9_(k2_6(2ax3#xnb38k30_90_)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['178.128.153.138:8000']
 
 
 # Application definition
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'projeto_fat.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -89,8 +89,9 @@ DATABASES = {
         },
     }
 }
-"""
 
+
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -104,7 +105,7 @@ DATABASES = {
         },
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
