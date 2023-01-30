@@ -84,17 +84,14 @@ DATABASES = {
         'PASSWORD': 'Go2b@#2021!',
         'HOST': '187.108.197.219',
         'PORT': '1433',
-
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server'
+        },
     }
 }
 
 
 """
-
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server'
-        },
-        
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
