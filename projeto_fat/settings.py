@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'projeto_fat.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -84,15 +85,15 @@ DATABASES = {
         'PASSWORD': 'Go2b@#2021!',
         'HOST': '187.108.197.219',
         'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server'
+        },
 
     }
 }
 
-
 """
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server'
-        },
+
 
 DATABASES = {
     'default': {
@@ -144,7 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
