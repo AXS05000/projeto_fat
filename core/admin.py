@@ -5,7 +5,7 @@ from .models import BaseCNPJ, BaseInfoContratos, Competencias, Notas
 
 @admin.register(BaseInfoContratos)
 class BaseInfoContratosAdmin(admin.ModelAdmin):
-    list_display = ('cod_cliente', 'contrato', 'cargo', 'valor_hora', 'data_inicio_cto')
+    list_display = ('cod_cliente', 'contrato', 'cargo', 'valor_hora', 'data_inicio_cto', 'contrato_ativo')
 
 
 @admin.register(Competencias)
@@ -18,4 +18,4 @@ class NotasAdmin(admin.ModelAdmin):
 
 @admin.register(BaseCNPJ)
 class BaseCNPJAdmin(admin.ModelAdmin):
-    list_display = ('cnpj', 'nome_cliente', 'razao','avenida_rua', 'endereco','numero', 'complemento','bairro', 'municipio','uf', 'cep', 'tipo_de_servico')
+    list_display = ('cnpj', 'nome_cliente', 'unidade','avenida_rua', 'endereco','numero', 'complemento','bairro', 'municipio','uf', 'cep', 'iss')
