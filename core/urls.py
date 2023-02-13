@@ -18,5 +18,6 @@ urlpatterns = [
     path('gestao/<int:id>/', views.notafiscalindividual, name='nota-individual'),
     path('login/', views.login, name='login'),
     path('gestao/search/', views.search, name='search'),
+    path('cnpj/', views.cnpj, name='cnpj'),
     
 ]

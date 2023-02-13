@@ -19,10 +19,10 @@ class BaseInfoContratos(models.Model):
     contrato_ativo = models.BooleanField('Contrato Ativo')
 
     class Meta:
-        ordering = ['cod_cliente', 'cargo']
+        ordering = ['cod_cliente', 'contrato', 'cargo']
     
     def __str__(self):
-        return f'{self.cod_cliente} - {self.cargo} - {self.contrato}'
+        return f'{self.cod_cliente} - {self.contrato} - {self.cargo}'
 
 class Competencias(models.Model):
     competencia = models.CharField('Competência', max_length=7)
@@ -38,7 +38,7 @@ class BaseCNPJ(models.Model):
     razao = models.CharField('Razão Social', max_length=100)
     avenida_rua = models.CharField('Avenida/Rua', max_length=450)
     endereco = models.CharField('Endereço', max_length=450)
-    numero = models.DecimalField('Número', max_digits=10, decimal_places=0)
+    numero = models.CharField('Número', max_length=20, null=True, blank=True)
     complemento = models.CharField('Complemento', max_length=90, null=True, blank=True)
     bairro = models.CharField('Bairro', max_length=80)
     municipio = models.CharField('Municipio', max_length=60)

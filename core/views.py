@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
-from .forms import NotasModelForm
+from .forms import BaseCNPJModelForm, NotasModelForm
 from .models import Notas
 
 # from core.main import make_recipe - Importação para testar as coisas.
@@ -243,3 +243,22 @@ def notafiscal8(request):
         'form': form
     }
     return render(request, 'notafiscal8.html', context)
+
+
+def cnpj(request):
+    if str(request.method) == 'POST':
+        form = BaseCNPJModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            
+            messages.success(request, 'Formulario salvo com sucesso')
+            form = BaseCNPJModelForm()
+        else:
+            messages.error(request, 'Erro ao salvar o formulario')
+            
+    else:
+        form = BaseCNPJModelForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'cnpj.html', context)
