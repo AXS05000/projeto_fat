@@ -28,4 +28,4 @@ class BaseCNPJModelForm(forms.ModelForm):
     class Meta:
         model = BaseCNPJ
         fields = ['cnpj', 'nome_cliente', 'unidade', 'razao','avenida_rua', 'endereco','numero', 'complemento','bairro', 'municipio','uf', 'cep', 'iss', 'tipo_de_servico']
-        required = ['cnpj', 'nome_cliente', 'unidade', 'razao','avenida_rua', 'endereco','numero', 'complemento','bairro', 'municipio','uf', 'cep', 'iss', 'tipo_de_servico']
+        required = ['cnpj', 'nome_cliente', 'unidade', 'razao','avenida_rua', 'endereco','numero','bairro', 'municipio','uf', 'cep', 'iss', 'tipo_de_servico']
