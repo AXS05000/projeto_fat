@@ -19,5 +19,6 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('gestao/search/', views.search, name='search'),
     path('cnpj/', views.cnpj, name='cnpj'),
+    path('fatoutros/', views.fatoutros, name='fatoutros'),
     
 ]

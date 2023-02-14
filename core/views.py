@@ -262,3 +262,23 @@ def cnpj(request):
         'form': form
     }
     return render(request, 'cnpj.html', context)
+
+
+
+def fatoutros(request):
+    if str(request.method) == 'POST':
+        form = NotasModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            
+            messages.success(request, 'Formulario salvo com sucesso')
+            form = NotasModelForm()
+        else:
+            messages.error(request, 'Erro ao salvar o formulario')
+            
+    else:
+        form = NotasModelForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'fatoutros.html', context)
