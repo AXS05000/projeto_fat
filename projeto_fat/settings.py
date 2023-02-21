@@ -87,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'GO2B_NOTAS',
-        'USER': 'sa',
-        'PASSWORD': 'Go2b@#2021!',
+        'USER': 'go2b_user',
+        'PASSWORD': 'User@#2023!',
         'HOST': '187.108.197.219',
         'PORT': '1433',
         'OPTIONS': {
