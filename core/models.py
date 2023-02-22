@@ -128,10 +128,10 @@ class Notas(Base):
         BaseCNPJ, on_delete=models.SET_NULL, null=True, blank=True, related_name='cnpj_da_nota'
     )
 
-    texto_livre = models.CharField('Texto Livre', max_length=1625)
+    texto_livre = models.CharField('Texto Livre', max_length=1625, null=True, blank=True)
 
     total_valor_outros = models.DecimalField(
-        'Total Valor Outros', max_digits=25, decimal_places=2)
+        'Total Valor Outros', max_digits=25, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.tipo_de_faturamento
