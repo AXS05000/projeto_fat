@@ -37,6 +37,21 @@ class Competencias(models.Model):
         return self.competencia
 
 
+
+
+
+
+GENDER_CHOICES_2 = (
+    ('LOG', 'LOG'),
+    ('MOT', 'MOT'),
+    ('DISTRIBUIÇÃO', 'DISTRIBUIÇÃO'),
+    ('PRIVADOS', 'PRIVADOS'),
+    ('OUTROS', 'OUTROS'),
+)
+
+
+
+
 class BaseCNPJ(models.Model):
     cnpj = models.CharField('CNPJ', max_length=18)
     razao = models.CharField('Razão Social', max_length=100)
@@ -53,6 +68,8 @@ class BaseCNPJ(models.Model):
     tipo_de_servico = models.CharField('Tipo de Serviço', max_length=5)
     iss = models.DecimalField('ISS', max_digits=4, decimal_places=2)
     unidade = models.CharField('Unidade', max_length=55)
+    tipo_de_cliente = models.CharField(
+        'Tipo de Cliente', max_length=150, choices=GENDER_CHOICES_2)
 
     class Meta:
         ordering = ['uf', 'nome_cliente', 'unidade']
@@ -69,6 +86,7 @@ GENDER_CHOICES = (
 )
 
 
+
 class Notas(Base):
 
     baseinfocontratos = models.ForeignKey(
@@ -80,49 +98,49 @@ class Notas(Base):
     tipo_de_faturamento = models.CharField(
         'Tipo de Faturamento', max_length=150, choices=GENDER_CHOICES)
     quantidade_hora = models.DecimalField(
-        'Quantidade de Horas', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos2 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_2', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora2 = models.DecimalField(
-        'Quantidade de Horas 2', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 2', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos3 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_3', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora3 = models.DecimalField(
-        'Quantidade de Horas 3', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 3', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos4 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_4', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora4 = models.DecimalField(
-        'Quantidade de Horas 4', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 4', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos5 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_5', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora5 = models.DecimalField(
-        'Quantidade de Horas 5', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 5', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos6 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_6', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora6 = models.DecimalField(
-        'Quantidade de Horas 6', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 6', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos7 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_7', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora7 = models.DecimalField(
-        'Quantidade de Horas 7', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 7', max_digits=18, decimal_places=4, null=True, blank=True)
 
     baseinfocontratos8 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_8', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora8 = models.DecimalField(
-        'Quantidade de Horas 8', max_digits=18, decimal_places=2, null=True, blank=True)
+        'Quantidade de Horas 8', max_digits=18, decimal_places=4, null=True, blank=True)
 
     cnpj_da_nota = models.ForeignKey(
         BaseCNPJ, on_delete=models.SET_NULL, null=True, blank=True, related_name='cnpj_da_nota'
@@ -132,6 +150,9 @@ class Notas(Base):
 
     total_valor_outros = models.DecimalField(
         'Total Valor Outros', max_digits=25, decimal_places=2, null=True, blank=True)
+    
+        
+    porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=4, decimal_places=2)
 
     def __str__(self):
         return self.tipo_de_faturamento
