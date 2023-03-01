@@ -152,7 +152,11 @@ class Notas(Base):
         'Total Valor Outros', max_digits=25, decimal_places=2, null=True, blank=True)
     
         
-    porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=4, decimal_places=2)
+    porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=4, decimal_places=2, null=True, blank=True)
+
+    competencia_nota_ans = models.ForeignKey(
+        Competencias, on_delete=models.SET_NULL, null=True, blank=True, related_name='competencia_nota_ans'
+    )
 
     def __str__(self):
         return self.tipo_de_faturamento
