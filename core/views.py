@@ -66,6 +66,8 @@ def cliente(request, cliente_id):
 
 
 
+def qtddecargos(request):
+    return render(request, 'qtddecargos.html')
 
 
 
@@ -84,14 +86,6 @@ class NotaFiscalCreateView(CreateView):
     def form_invalid(self, form):
         messages.error(self.request, 'Erro ao salvar o formulario')
         return super().form_invalid(form)
-
-
-
-
-
-
-def qtddecargos(request):
-    return render(request, 'qtddecargos.html')
 
 
 
