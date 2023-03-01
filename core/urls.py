@@ -1,10 +1,11 @@
 from django.urls import path
 
 from . import views
+from .views import NotaFiscalCreateView
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('notafiscal/', views.notafiscal, name='notafiscal'),
+    path('notafiscal/', NotaFiscalCreateView.as_view(), name='notafiscal'),
     path('gestao/', views.gestao, name='gestao'),
     path('qtddecargos/', views.qtddecargos, name='qtddecargos'),
     path('notafiscal2/', views.notafiscal2, name='notafiscal2'),

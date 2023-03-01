@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from django.views.generic import CreateView, DetailView, ListView
 
 from .forms import BaseCNPJModelForm, NotasModelForm
 from .models import Notas
@@ -70,7 +71,19 @@ def cliente(request, cliente_id):
 
 
 
+class NotaFiscalCreateView(CreateView):
+    model = Notas
+    form_class = NotasModelForm
+    template_name = 'notafiscal.html'
+    success_url = '/notafiscal/'
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Formulario salvo com sucesso')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Erro ao salvar o formulario')
+        return super().form_invalid(form)
 
 
 
@@ -80,25 +93,6 @@ def cliente(request, cliente_id):
 def qtddecargos(request):
     return render(request, 'qtddecargos.html')
 
-def notafiscal(request):
-    if str(request.method) == 'POST':
-        form = NotasModelForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            
-            messages.success(request, 'Formulario salvo com sucesso')
-            form = NotasModelForm()
-        else:
-            messages.error(request, 'Erro ao salvar o formulario')
-            
-    else:
-        form = NotasModelForm()
-    context = {
-        'form': form
-    }
-    return render(request, 'notafiscal.html', context)
-
-# Inicio aqui das quantidades de cargos a mais.
 
 
 
