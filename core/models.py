@@ -152,7 +152,8 @@ class Notas(Base):
         'Total Valor Outros', max_digits=25, decimal_places=2, null=True, blank=True)
     
         
-    porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=3, decimal_places=2, null=True, blank=True)
+    porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=3, decimal_places=2, null=True, blank=True, error_messages={
+        'max_digits': 'Certifique-se de que tenha digitado o valor correto de porcentagem na ANS'})
 
     competencia_nota_ans = models.ForeignKey(
         Competencias, on_delete=models.SET_NULL, null=True, blank=True, related_name='competencia_nota_ans'
