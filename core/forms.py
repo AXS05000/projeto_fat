@@ -20,7 +20,33 @@ class NotasModelForm(forms.ModelForm):
         error_messages = {
             'porcentagem_ans': {
                 'max_digits': 'Certifique-se de que tenha digitado o valor correto de porcentagem na ANS'
-            }
+            },
+            'quantidade_hora': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora2': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora3': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora4': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora5': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora6': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora7': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+            'quantidade_hora8': {
+                'max_digits': 'Valor digitado passa de 100.000,00 horas verifique se digitou corretamente'
+            },
+
+            
         }
 
 
