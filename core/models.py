@@ -98,49 +98,57 @@ class Notas(Base):
     tipo_de_faturamento = models.CharField(
         'Tipo de Faturamento', max_length=150, choices=GENDER_CHOICES)
     quantidade_hora = models.DecimalField(
-        'Quantidade de Horas', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos2 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_2', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora2 = models.DecimalField(
-        'Quantidade de Horas 2', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 2', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos3 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_3', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora3 = models.DecimalField(
-        'Quantidade de Horas 3', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 3', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos4 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_4', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora4 = models.DecimalField(
-        'Quantidade de Horas 4', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 4', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos5 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_5', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora5 = models.DecimalField(
-        'Quantidade de Horas 5', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 5', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos6 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_6', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora6 = models.DecimalField(
-        'Quantidade de Horas 6', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 6', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos7 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_7', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora7 = models.DecimalField(
-        'Quantidade de Horas 7', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 7', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     baseinfocontratos8 = models.ForeignKey(
         BaseInfoContratos, on_delete=models.SET_NULL, null=True, blank=True, related_name='cargo_8', limit_choices_to={'contrato_ativo': True}
     )
     quantidade_hora8 = models.DecimalField(
-        'Quantidade de Horas 8', max_digits=18, decimal_places=4, null=True, blank=True)
+        'Quantidade de Horas 8', max_digits=10, decimal_places=4, null=True, blank=True, error_messages={
+        'max_digits': 'Valor Digitado passa de 100.000,00 horas verifique se digitou corretamente'})
 
     cnpj_da_nota = models.ForeignKey(
         BaseCNPJ, on_delete=models.SET_NULL, null=True, blank=True, related_name='cnpj_da_nota'
@@ -149,7 +157,7 @@ class Notas(Base):
     texto_livre = models.CharField('Texto Livre', max_length=1625, null=True, blank=True)
 
     total_valor_outros = models.DecimalField(
-        'Total Valor Outros', max_digits=25, decimal_places=2, null=True, blank=True)
+        'Total Valor Outros', max_digits=10, decimal_places=4, null=True, blank=True)
     
         
     porcentagem_ans = models.DecimalField('Porcentagem ANS', max_digits=3, decimal_places=2, null=True, blank=True, error_messages={
