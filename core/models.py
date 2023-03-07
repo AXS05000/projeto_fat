@@ -30,8 +30,11 @@ class BaseInfoContratos(models.Model):
 
 
 class Competencias(models.Model):
-    competencia = models.CharField('Competência', max_length=7)
+    competencia = models.CharField('Competência', max_length=30)
     testelogico = models.CharField('Teste', max_length=1)
+
+    class Meta:
+        ordering = ['competencia']
 
     def __str__(self):
         return self.competencia
