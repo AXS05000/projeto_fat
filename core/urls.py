@@ -21,5 +21,7 @@ urlpatterns = [
     path('gestao/search/', views.search, name='search'),
     path('cnpj/', views.cnpj, name='cnpj'),
     path('fatoutros/', views.fatoutros, name='fatoutros'),
+    path('atualizar-cnpj/', views.update_basecnpj, name='atualizar_cnpj'),
+
     
 ]

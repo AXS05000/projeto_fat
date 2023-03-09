@@ -4,7 +4,8 @@ from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, ListView
 
 from .forms import BaseCNPJModelForm, NotasModelForm
-from .models import Notas
+from .models import BaseCNPJ, Notas
+from .utils import update_basecnpj_from_excel
 
 # from core.main import make_recipe - Importação para testar as coisas.
 
@@ -270,3 +271,17 @@ def fatoutros(request):
         'form': form
     }
     return render(request, 'fatoutros.html', context)
+
+
+
+
+
+
+
+
+def update_basecnpj(request):
+    if request.method == 'POST':
+        excel_file = request.FILES['excel_file']
+        update_basecnpj_from_excel(excel_file)
+        return render(request, 'atualizar_cnpj.html', {'success': True})
+    return render(request, 'atualizar_cnpj.html')
