@@ -149,7 +149,9 @@ class Notas(Base):
         BaseCNPJ, on_delete=models.SET_NULL, null=True, blank=True, related_name='cnpj_da_nota'
     )
 
-    texto_livre = models.CharField('Texto Livre', max_length=1625, null=True, blank=True)
+    texto_livre = models.CharField('Texto Livre', max_length=3500, null=True, blank=True)
+
+    contrato_texto_livre = models.CharField('Contrato Texto Livre', max_length=9, null=True, blank=True)
 
     total_valor_outros = models.DecimalField(
         'Total Valor Outros', max_digits=10, decimal_places=4, null=True, blank=True)
